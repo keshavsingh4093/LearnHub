@@ -1,3 +1,17 @@
+# LearnHub
+
+## Introduction 
+
+This API provides authentication, user management, and course-related operations such as viewing, adding to cart, and managing wishlists. Below is a detailed explanation of all available routes.
+
+## Base URL
+ 
+All requests should be made to:
+
+   ```bash
+   http://localhost:7600
+  ```
+
 # User and Course Routes Documentation
 
 ## User Routes
@@ -5,7 +19,7 @@
 ### 1. Send OTP for Email Verification
 **Endpoint:**
 ```http
-POST /send-otp
+POST /user/send-otp
 ```
 **Payload:**
 ```json
@@ -21,7 +35,7 @@ POST /send-otp
 ### 2. Verify OTP for Signup
 **Endpoint:**
 ```http
-POST /verify-otp
+POST /user/verify-otp
 ```
 **Payload:**
 ```json
@@ -38,7 +52,7 @@ POST /verify-otp
 ### 3. Signup User
 **Endpoint:**
 ```http
-POST /signup
+POST /user/signup
 ```
 **Payload:**
 ```json
@@ -56,7 +70,7 @@ POST /signup
 ### 4. User Login
 **Endpoint:**
 ```http
-POST /login
+POST /user/login
 ```
 **Payload:**
 ```json
@@ -73,7 +87,7 @@ POST /login
 ### 5. Forgot Password
 **Endpoint:**
 ```http
-POST /forgot-password
+POST /user/forgot-password
 ```
 **Payload:**
 ```json
@@ -89,7 +103,7 @@ POST /forgot-password
 ### 6. Verify Reset OTP
 **Endpoint:**
 ```http
-POST /verify-resetotp
+POST /user/verify-resetotp
 ```
 **Payload:**
 ```json
@@ -105,7 +119,7 @@ POST /verify-resetotp
 ### 7. Reset Password
 **Endpoint:**
 ```http
-POST /reset-password
+POST /user/reset-password
 ```
 **Payload:**
 ```json
@@ -121,7 +135,7 @@ POST /reset-password
 ### 8. Add Course to Cart
 **Endpoint:**
 ```http
-POST /cart
+POST /user/cart
 ```
 **Payload:**
 ```json
@@ -137,7 +151,7 @@ POST /cart
 ### 9. Show Cart Items
 **Endpoint:**
 ```http
-GET /cart
+GET /user/cart
 ```
 **Description:**
 - Retrieves all courses present in the user's cart.
@@ -147,7 +161,7 @@ GET /cart
 ### 10. Add Course to Wishlist
 **Endpoint:**
 ```http
-POST /wishlist
+POST /user/wishlist
 ```
 **Payload:**
 ```json
@@ -163,7 +177,7 @@ POST /wishlist
 ### 11. Show Wishlist Items
 **Endpoint:**
 ```http
-GET /wishlist
+GET /user/wishlist
 ```
 **Description:**
 - Retrieves all courses present in the user's wishlist.
@@ -175,7 +189,7 @@ GET /wishlist
 ### 12. Get All Courses (Before Login)
 **Endpoint:**
 ```http
-GET /
+GET /course
 ```
 **Query Parameters:**
 - `title` (optional) - Filter by course title
@@ -192,7 +206,7 @@ GET /
 ### 13. Get Enrolled Courses (After Login)
 **Endpoint:**
 ```http
-GET /mycourses
+GET /course/mycourses
 ```
 **Query Parameters:**
 - `title` (optional) - Filter by course title
@@ -222,29 +236,29 @@ courseRouter.use(authenticationCheck);
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/send-otp` | POST | Sends OTP for email verification |
-| `/verify-otp` | POST | Verifies OTP for signup |
-| `/signup` | POST | Registers a new user |
-| `/login` | POST | Logs in a user |
-| `/forgot-password` | POST | Sends OTP for password reset |
-| `/verify-resetotp` | POST | Verifies reset OTP |
-| `/reset-password` | POST | Resets the user's password |
-| `/cart` | POST | Adds a course to cart |
-| `/cart` | GET | Retrieves cart items |
-| `/wishlist` | POST | Adds a course to wishlist |
-| `/wishlist` | GET | Retrieves wishlist items |
-| `/` | GET | Retrieves all courses (before login) |
-| `/mycourses` | GET | Retrieves enrolled courses (after login) |
+| `/user/send-otp` | POST | Sends OTP for email verification |
+| `/user/verify-otp` | POST | Verifies OTP for signup |
+| `/user/signup` | POST | Registers a new user |
+| `/user/login` | POST | Logs in a user |
+| `/user/forgot-password` | POST | Sends OTP for password reset |
+| `/user/verify-resetotp` | POST | Verifies reset OTP |
+| `/user/reset-password` | POST | Resets the user's password |
+| `/user/cart` | POST | Adds a course to cart |
+| `/user/cart` | GET | Retrieves cart items |
+| `/user/wishlist` | POST | Adds a course to wishlist |
+| `/user/wishlist` | GET | Retrieves wishlist items |
+| `/course` | GET | Retrieves all courses (before login) |
+| `/course/mycourses` | GET | Retrieves enrolled courses (after login) |
 
 ---
 
 ## How to Use
 1. Clone the repository.
 2. Install dependencies using `npm install`.
-3. Start the server using `npm start`.
+3. Start the server using `npm run dev`.
 4. Use Postman or any API testing tool to make requests to the above endpoints.
 
 ---
 
 ### 💡 Need Help?
-Feel free to reach out if you need assistance with integrating the API! 🚀
+Feel free to reach out if you need assistance with integrating the API! 
