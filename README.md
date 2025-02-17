@@ -14,7 +14,7 @@ All requests should be made to:
 
 # User and Course Routes Documentation
 
-## User Routes
+## User Authentication Routes
 
 ### 1. Send OTP for Email Verification
 **Endpoint:**
@@ -131,6 +131,8 @@ POST /user/reset-password
 - Allows users to reset their password after OTP verification.
 
 ---
+
+## Cart and Wishlist Routes (Private Routes)
 
 ### 8. Add Course to Cart
 **Endpoint:**
