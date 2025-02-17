@@ -13,6 +13,16 @@ app.use(cors());
 
 app.use(cookieParser());
 
+app.use((req, res, next) => {
+  const startTime = Date.now();
+  console.log(startTime);
+  next();
+
+  const endTime = Date.now();
+  console.log(endTime);
+  console.log("Response Time: " + (endTime - startTime));
+})
+
 app.get("/health", (req, res) => {
   res.send("Healthy");
 });

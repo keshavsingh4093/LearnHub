@@ -1,8 +1,14 @@
 import { Schema, model } from "mongoose";
 
 const courseSchema = new Schema({
-    thumbnail: String,
-    title: String,
+    thumbnail: {
+        type: String,
+        required: true,
+    },
+    title: {
+        type: String,
+        required: true,
+    },
     description: String,
     features: [String],
     category: String,
